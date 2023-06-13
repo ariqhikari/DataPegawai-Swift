@@ -45,15 +45,6 @@ class ViewController: UIViewController {
     tableView.tableHeaderView = searchController.searchBar
     
     self.navigationItem.title = "Employees"
-    
-    let navBarAppearance = UINavigationBarAppearance()
-    navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    navBarAppearance.backgroundColor = UIColor(displayP3Red: 47/255, green: 54/255, blue: 64/255, alpha: 1.0)
-    
-    self.navigationController?.navigationBar.prefersLargeTitles = true
-    self.navigationController?.navigationBar.standardAppearance = navBarAppearance
-    self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
   }
  
 }
@@ -71,7 +62,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
     
     if searchController.isActive && !((searchController.searchBar.text?.isEmpty)!) {
-      print("MASUK")
       employee = filteredEmployees[indexPath.row]
     }
     
@@ -84,6 +74,11 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     return cell
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let controller = self.storyboard?.instantiateViewController(withIdentifier: "detailController") as! DetailViewController
+    controller.employeesID = Int(employees[indexPath.row].id)
+    self.navigationController?.pushViewController(controller, animated: true)
   }
 }
 

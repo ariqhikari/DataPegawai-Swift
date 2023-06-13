@@ -24,16 +24,18 @@ class AddFormViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.navigationItem.title = "Add Form Employees"
     setupView()
   }
   
   func setupView() {
+    self.navigationItem.title = "Add Form Employees"
+    
     imagePicker.delegate = self
     imagePicker.allowsEditing = true
     imagePicker.sourceType = .photoLibrary
-    
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
     if employeesID != 0 {
       let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employees")
       employeesFetch.fetchLimit = 1
@@ -48,8 +50,9 @@ class AddFormViewController: UIViewController {
       emailTextField.text = employees.email
       
       let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "dd-MM-YYYY"
+      dateFormatter.dateFormat = "yyyy-MM-dd"
       let date = dateFormatter.date(from: employees.birthDate!)
+
       datePicker.date = date!
       imageEmployees.image = UIImage(data: employees.image!)
     }
@@ -59,7 +62,7 @@ class AddFormViewController: UIViewController {
   @IBAction func buttonSave(_ sender: Any) {
     guard let firstName = firstNameTextField.text, firstName != "" else {
       let alertController = UIAlertController(title: "Warning", message: "First Name is required", preferredStyle: .alert)
-      let alertAction = UIAlertAction(title: "yes", style: .default)
+      let alertAction = UIAlertAction(title: "Yes", style: .default)
       alertController.addAction(alertAction)
       self.present(alertController, animated: true)
       return
@@ -67,7 +70,7 @@ class AddFormViewController: UIViewController {
     
     guard let lastName = lastNameTextField.text, lastName != "" else {
       let alertController = UIAlertController(title: "Warning", message: "Last Name is required", preferredStyle: .alert)
-      let alertAction = UIAlertAction(title: "yes", style: .default)
+      let alertAction = UIAlertAction(title: "Yes", style: .default)
       alertController.addAction(alertAction)
       self.present(alertController, animated: true)
       return
@@ -75,16 +78,16 @@ class AddFormViewController: UIViewController {
 
     guard let email = emailTextField.text, email != "" else {
       let alertController = UIAlertController(title: "Warning", message: "Email is required", preferredStyle: .alert)
-      let alertAction = UIAlertAction(title: "yes", style: .default)
+      let alertAction = UIAlertAction(title: "Yes", style: .default)
       alertController.addAction(alertAction)
       self.present(alertController, animated: true)
       return
     }
 
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd-MM-YYYY"
+    dateFormatter.dateFormat = "yyyy-MM-dd"
     let birthDate = dateFormatter.string(from: datePicker.date)
-
+    
     // check dari halaman edit atau add
     if employeesID > 0 {
       let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employees")
@@ -148,9 +151,9 @@ class AddFormViewController: UIViewController {
       } catch {
         print(error.localizedDescription)
       }
-      self.navigationController?.popViewController(animated: true)
     }
 
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func takeAPicture(_ sender: Any) {

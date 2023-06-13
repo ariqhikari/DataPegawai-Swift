@@ -16,6 +16,8 @@
 		F862EA072A31AC280051925E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F862EA062A31AC280051925E /* Assets.xcassets */; };
 		F862EA0A2A31AC280051925E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F862EA082A31AC280051925E /* LaunchScreen.storyboard */; };
 		F862EA122A31B69B0051925E /* AddFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862EA112A31B69A0051925E /* AddFormViewController.swift */; };
+		F88EAC8B2A36CE5900712515 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88EAC8A2A36CE5900712515 /* DetailViewController.swift */; };
+		F8CAA1982A381F8F009A2DF5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CAA1972A381F8F009A2DF5 /* CustomNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F862EA092A31AC280051925E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F862EA0B2A31AC280051925E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F862EA112A31B69A0051925E /* AddFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFormViewController.swift; sourceTree = "<group>"; };
+		F88EAC8A2A36CE5900712515 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F8CAA1972A381F8F009A2DF5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				F862E9FE2A31AC280051925E /* ViewController.swift */,
-				F862EA112A31B69A0051925E /* AddFormViewController.swift */,
 				F804A5652A34248B00463966 /* TableViewCell.swift */,
+				F8CAA1972A381F8F009A2DF5 /* CustomNavigationController.swift */,
+				F862EA112A31B69A0051925E /* AddFormViewController.swift */,
+				F88EAC8A2A36CE5900712515 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,8 +189,10 @@
 				F862E9FF2A31AC280051925E /* ViewController.swift in Sources */,
 				F862EA122A31B69B0051925E /* AddFormViewController.swift in Sources */,
 				F804A5662A34248B00463966 /* TableViewCell.swift in Sources */,
+				F8CAA1982A381F8F009A2DF5 /* CustomNavigationController.swift in Sources */,
 				F862E9FB2A31AC280051925E /* AppDelegate.swift in Sources */,
 				F862E9FD2A31AC280051925E /* SceneDelegate.swift in Sources */,
+				F88EAC8B2A36CE5900712515 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
